@@ -24,9 +24,24 @@
    image-rendering: auto;
 }
 
+@media (max-width: 789px) {
+
+   .logo-organo {
+      display: none;
+   }
+
+   .footer {
+      padding: 60px;
+   }
+}
+
 @media (max-width: 520px) {
 
    .logo-organo {
       display: none;
+   }
+
+   .footer {
+      padding: 40px;
    }
 }

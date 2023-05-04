@@ -11,3 +11,15 @@
    padding: 36px 64px;
    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08);
 }
+
+@media (max-width: 520px) {
+
+   .formulario {
+      margin: 60px 0;
+   }
+
+   .formulario form {
+      max-width: 90%;
+      padding: 24px 24px;
+   }
+}

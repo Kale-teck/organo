@@ -8,6 +8,7 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
+   flex-wrap: wrap;
 }
 
 .footer ul li {
@@ -21,4 +22,11 @@
 
 .footer img {
    image-rendering: auto;
+}
+
+@media (max-width: 520px) {
+
+   .logo-organo {
+      display: none;
+   }
 }

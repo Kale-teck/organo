@@ -6,43 +6,36 @@ import Rodape from './componentes/Rodape';
 
 function App() {
 
-  const times = [
+  const [times, setTimes] = useState([
     {
       nome: 'Programação',
-      corPrimaria: '#57C278',
-      corSecundaria: '#D9F7E9'
+      corPrimaria: '#57C278'
     },
     {
       nome: 'Front-End',
-      corPrimaria: '#82CFFA',
-      corSecundaria: '#E8F8FF'
+      corPrimaria: '#82CFFA'
     },
     {
       nome: 'Data Science',
-      corPrimaria: '#A6D157',
-      corSecundaria: '#F0F8E2'
+      corPrimaria: '#A6D157'
     },
     {
       nome: 'DevOps',
-      corPrimaria: '#E06B69',
-      corSecundaria: '#FDE7E8'
+      corPrimaria: '#E06B69'
     },
     {
       nome: 'UX e Design',
-      corPrimaria: '#DB6EBF',
-      corSecundaria: '#FAE9F5'
+      corPrimaria: '#DB6EBF'
     },
     {
       nome: 'Mobile',
-      corPrimaria: '#FFBA05',
-      corSecundaria: '#FFF5D9'
+      corPrimaria: '#FFBA05'
     },
     {
       nome: 'Inovação e Gestão',
-      corPrimaria: '#FF8A29',
-      corSecundaria: '#FFEEDF'
+      corPrimaria: '#FF8A29'
     }
-  ]
+  ])
 
   const [colaboradores, setColabores] = useState([])
 
@@ -54,22 +47,38 @@ function App() {
     console.log('Colaborador deletado')
   }
 
+  function mudarCorDoTime(cor, nome) {
+    setTimes(times.map(time => {
+      if(time.nome === nome) {
+        time.corPrimaria = cor
+      }
+      return time
+    }))
+  }
+
   return (
     <div className="App">
+
       <Banner/>
-      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
+
+      <Formulario 
+        times={times.map(time => time.nome)}
+        aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}
+      />
       
       {times.map(time => 
         <Time 
+          mudarCor={mudarCorDoTime}
           key={time.nome} 
           nome={time.nome} 
-          corPrimaria={time.corPrimaria} 
-          corSecundaria={time.corSecundaria}
+          corPrimaria={time.corPrimaria}
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
           aoDeletar={deletarColaborador}
         />
       )}
+
       <Rodape/>
+      
     </div>
   );
 }

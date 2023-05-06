@@ -1,13 +1,15 @@
 import Colaborador from "../Colaborador"
 import "./time.css"
+import hexToRgba from 'hex-to-rgba';
 
 const Time = (props) => {
 
-   const corDeFundo = {backgroundColor: props.corSecundaria}
+   const corDeFundo = {backgroundColor: hexToRgba(props.corPrimaria, '0.35')}
    
 
    return (
       (props.colaboradores.length > 0) && <section className="time" style={corDeFundo}>
+         <input onChange={evento => props.mudarCor(evento.target.value, props.nome)} value={props.corPrimaria} type="color" className="input-cor"/>
          <h3 style={{ borderColor: props.corPrimaria}}>
             {props.nome}
          </h3>

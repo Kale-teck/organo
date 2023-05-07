@@ -43,8 +43,8 @@ function App() {
     setColabores([...colaboradores, colaborador])
   }
 
-  function deletarColaborador() {
-    console.log('Colaborador deletado')
+  function deletarColaborador(evento) {
+    console.log(evento)
   }
 
   function mudarCorDoTime(cor, nome) {
